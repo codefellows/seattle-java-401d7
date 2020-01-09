@@ -2,12 +2,15 @@
 
 ## Agenda
 
-- Welcome, announcements
+- Announcements
+  - Michelle and Nicholas in a meeting for part of lecture today, so John will talk about interviewing!
 - Code review
-- Daily systems: Directories & Files
-- Warmup questions
+- Interlude: Interviewing (ft. John)
+- Warmup questions (if time)
 - Lecture
-- Lab intro
+  - Classes and Objects
+  - Variables and Methods
+  - HashMaps vs. Classes & Objects
 
 ## OOP Warmup
 
