@@ -3,7 +3,14 @@
  */
 package demo;
 
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.BufferOverflowException;
+import java.util.Scanner;
 
 public class App {
     public String getGreeting() {
@@ -11,11 +18,72 @@ public class App {
     }
 
     public static void main(String[] args) {
+        Gson gson = new Gson();
 
         System.out.println(new App().getGreeting());
-        pickANumberLessThan3(2);
-        pickANumberLessThan3(4);
+//        pickANumberLessThan3(2);
+//        pickANumberLessThan3(4);
+        Cat azazel = new Cat("azazel", true, "black", "critters", 8 );
+        azazel.sneak();
+        String stringyAzazel = gson.toJson(azazel);
+        System.out.println("stringyAzazel = " + stringyAzazel);
+//        stringyAzazel.sneak()
+
+        File azazelFile = new File("src/main/resources/azazel.json");
+        FileWriter myWriter;
+        try {
+            myWriter = new FileWriter("src/main/resources/azazel.json");
+            gson.toJson(azazel, myWriter);
+            // analagous to save
+            myWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("File not found");
+        }
+
+        // reconstituting / parsing json from a file
+        String path = "src/main/resources/kitten.json";
+        try {
+            Scanner scanner = new Scanner(new File(path));
+            String firstLine = scanner.nextLine();
+
+            // gson and many other parsing type libraries require knowledge about the class, but not the class itself
+            Cat snowdrop = gson.fromJson(firstLine, Cat.class);
+            System.out.println(snowdrop.name);
+            snowdrop.sneak();
+
+            // jabawwockees, badgers, tigers
+            Jabberwookie snowMonster = gson.fromJson(firstLine, Jabberwookie.class);
+            System.out.println("snowMonster = " + snowMonster);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        //let gson write the file and convert to json for us;
+        // converts azazel to json, and writes it to a file at the same time
+        // one option for arguments in gson.toJson is(Object, FileWriter)
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static String pickANumberLessThan3 (int someNumber){
         if(someNumber > 7){
