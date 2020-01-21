@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>emotions</h1>
+    <ul>
+        <li th:each="emotion : ${emotionLis}" >
+<!--            auto calls toString on anything being turned into text-->
+            <span th:text="${emotion}"></span>
+<!--            If you have a getter on a private property it will call the getter for you-->
+            <span th:text="${emotion.strength}"></span>
+        </li>
+
+    </ul>
+</body>
+</html>
