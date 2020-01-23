@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>emotions</h1>
+    <ul>
+        <li th:each="emotion : ${emotionLis}" >
+<!--            auto calls toString on anything being turned into text-->
+            <span th:text="${emotion}"></span>
+<!--            If you have a getter on a private property it will call the getter for you-->
+            <span th:text="${emotion.strength}"></span>
+            <span th:text="${emotion.expressions.toString()}"></span>
+<!--            https://stackoverflow.com/questions/16119421/thymeleaf-concatenation-could-not-parse-as-expression-->
+            <form action="/expression" method="POST">
+                <h2>Add an expression</h2>
+                <input type="hidden" th:value="${emotion.id}" name="id">
+                Action: <input type="text" name="action">
+                Intensity: <input type="text" name="intensity">
+                <input type="submit" value="add expression">
+            </form>
+
+            <form th:action="'/emotions/delete/' + ${emotion.id}" method="POST">
+                <button type="submit">Suppress me</button>
+            </form>
+
+        </li>
+
+    </ul>
+
+    <form action="/emotions" method="POST">
+        <h2>Add a new emotion</h2>
+        name : <input type="text" name="emotionName">
+        reason: <input type="text" name="reason">
+        strength: <input type="number" name="strength">
+        <input type="submit">
+    </form>
+</body>
+</html>
