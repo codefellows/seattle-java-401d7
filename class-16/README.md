@@ -6,7 +6,7 @@
   - Review project prep assignments
   - Feedback review
 - Project Teams
-  - Matthaus, Micah, Annie, Crystal
+  - Mattäus, Micah, Annie, Crystal
   - Travis, Jerome, Peter
   - Dayne, Yihang, shane,  silas
   - Daesy, Joshua, Romell, Serge
