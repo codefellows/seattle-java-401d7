@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">go home</a>
+                <a href="/logout">Log out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1>This is [[${usernameWeAreVisiting}]]'s detail page, you are visiting them [[${principalTheAndroid}]]</h1>
+
+    <h2> adopt a puma</h2>
+    <form action="/pumaDetails" method="POST">
+
+        <ul>
+            <li th:each="puma : ${userWeAreVisiting.pumas}" th:style="'background-color:' + ${puma.color}">
+                <p>[[${puma.firstName}]] [[${puma.lastName}]]</p>
+            </li>
+        </ul>
+
+
+        <input type="hidden" th:value="${userIdWeAreVisiting}" name="id">
+
+        firstName <input type="text" name="firstName">
+        lastName <input type="text" name="lastName">
+        color <input type="color" name="color">
+        age <input type="number" name="age">
+        domestic <input type="checkbox" name="feral">
+        <input type="submit">
+    </form>
+
+    <img src="/images/asteroids.png">
+</body>
+</html>
