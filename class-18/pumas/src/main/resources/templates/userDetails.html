@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">go home</a>
+                <a href="/logout">Log out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1>This is [[${usernameWeAreVisiting}]]'s detail page, you are visiting them [[${principalTheAndroid}]]</h1>
+
+    <h2> adopt a puma</h2>
+
+        <ul>
+            <li th:each="puma : ${userWeAreVisiting.pumas}" th:style="'background-color:' + ${puma.color} + '30'">
+                <p>[[${puma.firstName}]] [[${puma.lastName}]] successfulHunts : [[${puma.successfulHunts}]]</p>
+                <form action="/puma/delete" method="POST">
+                    <input type="hidden" th:value="${userWeAreVisiting.id}" name="id">
+                    <input type="hidden" th:value="${puma.id}" name="pumaId">
+                    <input type="submit" value="we hunted this puma">
+                </form>
+                <ul>
+                    <p>I am hunting these pumas</p>
+                    <li th:each="prey : ${puma.pumasIAmHunting}" th:text="${prey.firstName}" th:style="'background-color:' + ${prey.color} + '30'"></li>
+                </ul>
+            </li>
+        </ul>
+
+<!--        the pumas are my pets-->
+        <form action="/puma/contract" method="POST">
+            <h3>Take a contract out on someone</h3>
+            <label for="bountyHunterId">Bounty Hunter</label>
+            <select name="bountyHunterId">
+                <option th:each="puma : ${userWeAreVisiting.pumas}" th:value="${puma.id}">
+                    [[${puma.firstName}]] [[${puma.lastName}]]
+                </option>
+            </select>
+            <label for="preyId">prey</label>
+
+            <select name="preyId">
+                <option th:each="puma : ${userWeAreVisiting.pumas}" th:value="${puma.id}">[[${puma.firstName}]] [[${puma.lastName}]]</option>
+            </select>
+
+            <input type="hidden" th:value="${userWeAreVisiting.id}" name="id">
+
+            <input type="submit">
+        </form>
+<!--        form- a button for hittable, information i need is bounty hunter and prey-->
+<!--        single dropdown of bounty hunters another dropdown of possible prey-->
+    <form action="/pumaDetails" method="POST">
+
+        <input type="hidden" th:value="${userIdWeAreVisiting}" name="id">
+
+        firstName <input type="text" name="firstName">
+        lastName <input type="text" name="lastName">
+        color <input type="color" name="color">
+        age <input type="number" name="age">
+        domestic <input type="checkbox" name="feral">
+        <input type="submit">
+    </form>
+
+    <img src="/images/asteroids.png">
+
+
+    <h2 th:if="${userWeAreVisiting.allMyPumasAreFighting()}">theyre fighting</h2>
+
+    <audio th:if="${userWeAreVisiting.allMyPumasAreFighting()}" src="/audio/cats.mp3#t=00:00:20" autoplay controls></audio>
+
+</body>
+</html>
