@@ -27,3 +27,7 @@ Specifically, you must:
 
 4. Deploy your application to the world.
     - Your application must be available at a custom domain name, using Heroku (recommended) or similar.
+    
+5. You must add me as a collaborator on your project
+    - Sometime during the week you must ask me for a review on a pull request.
+    - github.com/ncarignan
