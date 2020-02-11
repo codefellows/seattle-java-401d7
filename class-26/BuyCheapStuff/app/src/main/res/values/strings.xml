@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BuyCheapStuff</string>
+    <string name="title_activity_cart">Cart</string>
+</resources>
