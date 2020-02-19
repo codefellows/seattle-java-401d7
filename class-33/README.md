@@ -1,4 +1,4 @@
-# Lecture 32: AWS Amplify and DynamoDB
+# Lecture 33: AWS Amplify and DynamoDB
 
 ## Agenda
 
