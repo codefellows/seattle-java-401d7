@@ -1,11 +1,12 @@
-# Lecture 33: Dynamo and Related Data
+# Lecture 32: AWS Amplify and DynamoDB
 
 ## Agenda
 
 - Announcements
 - Code review
-  - featuring extra RecyclerView practice?
 - Lecture
-  - Related Data in Dynamo
+  - How AWS and Amplify work
+  - How DynamoDB Works
+  - Working with Amplify in Android
 - Lab intro
 - (if time) Whiteboard practice
