@@ -1,0 +1,12 @@
+type BuyableItem @model {
+  id: ID!
+  title: String
+  price: Float
+  shelf: Shelf @connection(name: "ShelfItems")
+}
+
+type Shelf @model {
+  id: ID!
+  name: String
+  buyableItems: [BuyableItem] @connection(name : "ShelfItems")
+}

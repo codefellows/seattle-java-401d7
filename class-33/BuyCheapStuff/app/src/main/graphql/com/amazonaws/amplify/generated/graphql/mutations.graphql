@@ -1,0 +1,103 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateBuyableItem(
+  $input: CreateBuyableItemInput!
+  $condition: ModelBuyableItemConditionInput
+) {
+  createBuyableItem(input: $input, condition: $condition) {
+    id
+    title
+    price
+    shelf {
+      id
+      name
+      buyableItems {
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdateBuyableItem(
+  $input: UpdateBuyableItemInput!
+  $condition: ModelBuyableItemConditionInput
+) {
+  updateBuyableItem(input: $input, condition: $condition) {
+    id
+    title
+    price
+    shelf {
+      id
+      name
+      buyableItems {
+        nextToken
+      }
+    }
+  }
+}
+mutation DeleteBuyableItem(
+  $input: DeleteBuyableItemInput!
+  $condition: ModelBuyableItemConditionInput
+) {
+  deleteBuyableItem(input: $input, condition: $condition) {
+    id
+    title
+    price
+    shelf {
+      id
+      name
+      buyableItems {
+        nextToken
+      }
+    }
+  }
+}
+mutation CreateShelf(
+  $input: CreateShelfInput!
+  $condition: ModelShelfConditionInput
+) {
+  createShelf(input: $input, condition: $condition) {
+    id
+    name
+    buyableItems {
+      items {
+        id
+        title
+        price
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateShelf(
+  $input: UpdateShelfInput!
+  $condition: ModelShelfConditionInput
+) {
+  updateShelf(input: $input, condition: $condition) {
+    id
+    name
+    buyableItems {
+      items {
+        id
+        title
+        price
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteShelf(
+  $input: DeleteShelfInput!
+  $condition: ModelShelfConditionInput
+) {
+  deleteShelf(input: $input, condition: $condition) {
+    id
+    name
+    buyableItems {
+      items {
+        id
+        title
+        price
+      }
+      nextToken
+    }
+  }
+}

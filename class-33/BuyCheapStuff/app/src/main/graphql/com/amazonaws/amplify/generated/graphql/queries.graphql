@@ -1,0 +1,63 @@
+# this is an auto generated file. This will be overwritten
+query GetBuyableItem($id: ID!) {
+  getBuyableItem(id: $id) {
+    id
+    title
+    price
+    shelf {
+      id
+      name
+      buyableItems {
+        nextToken
+      }
+    }
+  }
+}
+query ListBuyableItems(
+  $filter: ModelBuyableItemFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listBuyableItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      price
+      shelf {
+        id
+        name
+      }
+    }
+    nextToken
+  }
+}
+query GetShelf($id: ID!) {
+  getShelf(id: $id) {
+    id
+    name
+    buyableItems {
+      items {
+        id
+        title
+        price
+      }
+      nextToken
+    }
+  }
+}
+query ListShelfs(
+  $filter: ModelShelfFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listShelfs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      buyableItems {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
