@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+
+
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a href="/"> go home</a>
+            <a href="/logout">Log Out</a>
+        </li>
+    </ul>
+</nav>
+<h1>This is  [[${usernameWeAreVisiting}]]'s detail page, you are visiting them [[${principalTheAndroid}]]</h1>
+<ul>
+    <li th:each="follower : ${userWeAreVisiting.usersFollowingMe}" th:text="${follower.username}"></li>
+</ul>
+<h2>Make a Post</h2>
+
+    <ul>
+        <li th:each="post : ${userWeAreVisiting.posts}">
+            <p>[[${post.body}]]  [[${post.createdAt}]]</p>
+            <ul>
+                <li th:each="dis :${post.iAmFollowing}" th:text="${post.body}">
+
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <form action="/followMe" method="POST">
+<!--need to know that is getting followed (the one i am clicking the button on)-->
+<!--        the stalker (the one on the webpage)-->
+        <input type="hidden" name="toBeFollowedId" th:value="${userWeAreVisiting.id}">
+        <input type="submit" th:value="'follow ' +${userWeAreVisiting.username}">
+    </form>
+
+
+
+
+
+<form action="/postDetails" method="POST">
+
+    <input type="hidden" th:value="${userIdWeAreVisiting}" name="id">
+    Body<input type="text"name="body">
+    createdAt<input type="text"name="createdAt">
+    kidsAppropriate<input type="checkbox"name="feral">
+    <input type="submit">
+    <br> <br>
+    
+</form>
+<img src="/images/deep_learning.gif">
+
+</body>
+</html>

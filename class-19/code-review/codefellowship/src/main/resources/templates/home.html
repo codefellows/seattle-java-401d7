@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+
+<nav>
+    <ul>
+        <li>
+            <a href="/"> go home</a>
+            <a href="/logout">Log Out</a>
+        </li>
+    </ul>
+</nav>
+
+<p>Welcome to the this great website. We don't claim to be the best, but we don't know a better website </p>
+<h1>Welcome [[${username}]]</h1>
+<h2>Make new user</h2>
+
+<form action="/signup" method="POST">
+    Username <input type="userName" name="username"> <br> <br>
+    Password <input type="password" name="password"> <br> <br>
+    firstname <input type="firstName" name="firstName"> <br> <br>
+    lastName <input type="lastName" name="lastName"> <br> <br>
+    dateOfBirth <input type="dateOfBirth" name="dateOfBirth"> <br> <br>
+    bio<input type="bio" name="bio"> <br> <br>
+    <input type="submit">
+</form> <br>
+<!--<a href="/logout">Log out buddy</a>-->
+</body>
+</html>
